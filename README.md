@@ -48,6 +48,7 @@ Sequel-Ace es el cliente para DB
 
 ## 10. Instalar Docker Desktop (opcional)
 >Automaticamente determinar si es para Intel o Apple Silicon  
+
 `brew install --cask docker`
 
 ## 11. Instalar Fork (Cliente de Git)
