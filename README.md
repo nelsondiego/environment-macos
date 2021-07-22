@@ -70,7 +70,7 @@ Se debera confiar para que no pregunte por el password cada vez que se ejecuta u
 En la raiz del proyecto laravel o symfony correr    
 `valet link`
 
-luego, suponiendo que la carpeta del proyecto se llame *proyectolaravel* ejecutar el siguiente comando con el mismo nombre para instalar un certificado de seguridad para https:
+luego, suponiendo que la carpeta del proyecto se llame *proyectolaravel* ejecutar el siguiente comando con el mismo nombre para instalar un certificado de seguridad para https:  
 `valet secure <nombre de la carpeta>`
 en el ejemplo quedaria ***valet secure proyectolaravel***
 
