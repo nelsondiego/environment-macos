@@ -10,7 +10,9 @@
 - Reiniciar  
   
        
-> Los siguientes pasos se hacen en la terminal
+> Los siguientes pasos se hacen en la terminal  
+
+> Todos los comandos que incluyen el flag --cask, se isntala la version de escritorio, en caso contrario la version para terminal  
 
 ## 2. Instalar Homebrew
 Ejecutar el siguiente comando:
