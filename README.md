@@ -66,6 +66,11 @@ luego:
 Se debera confiar para que no pregunte por el password cada vez que se ejecuta un comando:  
 `valet trust`
 
+## 14. Instalar PHP Monitor 
+App que mustra la version activa de php y permite switchear a otra
+`brew tap nicoverbruggen/homebrew-cask`
+`brew install --cask phpmon`
+
 ### Uso de Valet
 En la raiz del proyecto laravel o symfony correr    
 `valet link`
