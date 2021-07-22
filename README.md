@@ -9,6 +9,7 @@
 - Correr el comando `csrutil disable`
 - Reiniciar  
   
+---
        
 > Los siguientes pasos se hacen en la terminal  
 
@@ -70,6 +71,8 @@ Se debera confiar para que no pregunte por el password cada vez que se ejecuta u
 App que mustra la version activa de php y permite switchear a otra
 `brew tap nicoverbruggen/homebrew-cask`
 `brew install --cask phpmon`
+
+---
 
 ### Uso de Valet
 En la raiz del proyecto laravel o symfony correr    
