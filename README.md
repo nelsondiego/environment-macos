@@ -28,16 +28,16 @@ Ejecutar el siguiente comando:
 `brew install git`
 
 ## 5. Instalar PHP (última versión)
-`brew install php`
+`brew install php`  
 para otra version anterior: 
 `brew install php@7.4`
 
 ## 6. Instalar DBngin
-DBngin instala y administra Mysql, PostgreSQL y Redis,
+DBngin instala y administra Mysql, PostgreSQL y Redis.  
 `brew install --cask dbngin`
 
 ## 7. Instalar Sequel-Ace
-Sequel-Ace es el cliente para DB
+Sequel-Ace es el cliente para DB  
 `brew install --cask sequel-ace`
 
 ## 8. Instalar NVM (Node Version Manager)
@@ -47,7 +47,7 @@ Sequel-Ace es el cliente para DB
 `brew install yarn`
 
 ## 10. Instalar Docker Desktop (opcional)
-Automaticamente determinar si es para Intel o Apple Silicon
+Automaticamente determinar si es para Intel o Apple Silicon  
 `brew install --cask docker`
 
 ## 11. Instalar Fork (Cliente de Git)
@@ -62,11 +62,11 @@ Automaticamente determinar si es para Intel o Apple Silicon
 luego:
 `valet install`
 
-Se debera confiar para que no pregunte por el password cada vez que se ejecuta un comando:
+Se debera confiar para que no pregunte por el password cada vez que se ejecuta un comando:  
 `valet trust`
 
 ### Uso de Valet
-En la raiz del proyecto laravel o symfony correr  
+En la raiz del proyecto laravel o symfony correr    
 `valet link`
 
 luego, suponiendo que la carpeta del proyecto se llame *proyectolaravel* ejecutar el siguiente comando con el mismo nombre para instalar un certificado de seguridad para https:
@@ -74,6 +74,8 @@ luego, suponiendo que la carpeta del proyecto se llame *proyectolaravel* ejecuta
 en el ejemplo quedaria ***valet secure proyectolaravel***
 
 luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test***
+
+
 
  
 
