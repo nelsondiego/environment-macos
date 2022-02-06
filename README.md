@@ -28,20 +28,23 @@ Ejecutar el siguiente comando:
 ## 4. Instalar Git
 `brew install git`
 
-## 5. Instalar PHP (última versión)
+## 5. Instalar Oh My Zsh
+`sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+
+## 6. Instalar PHP (última versión)
 `brew install php`  
 para otra version anterior: 
 `brew install php@7.4`
 
-## 6. Instalar DBngin
+## 7. Instalar DBngin
 DBngin instala y administra Mysql, PostgreSQL y Redis.  
 `brew install --cask dbngin`
 
-## 7. Instalar Sequel-Ace
+## 8. Instalar Sequel-Ace
 Sequel-Ace es el cliente para DB  
 `brew install --cask sequel-ace`
 
-## 8. Instalar NVM (Node Version Manager)
+## 9. Instalar NVM (Node Version Manager)
 `brew install nvm`   
 Luego agregar en .zshrc:   
 `export NVM_DIR="$HOME/.nvm"   
@@ -49,21 +52,21 @@ Luego agregar en .zshrc:
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 `
 
-## 9. Instalar Yarn
+## 10. Instalar Yarn
 `brew install yarn`
 
-## 10. Instalar Docker Desktop (opcional)
+## 11. Instalar Docker Desktop (opcional)
 >Automaticamente determinar si es para Intel o Apple Silicon  
 
 `brew install --cask docker`
 
-## 11. Instalar Fork (Cliente de Git)
+## 12. Instalar Fork (Cliente de Git)
 `brew install --cask fork`
 
-## 12. Instalar Visual Studio Code
+## 13. Instalar Visual Studio Code
 `brew install --cask visual-studio-code`
 
-## 13. Instalar Laravel Valet
+## 14. Instalar Laravel Valet
 `composer global require laravel/valet`
 
 luego:
@@ -72,15 +75,15 @@ luego:
 Se debera confiar para que no pregunte por el password cada vez que se ejecuta un comando:  
 `valet trust`
 
-## 14. Instalar PHP Monitor 
+## 15. Instalar PHP Monitor 
 App que mustra la version activa de php y permite switchear a otra   
 `brew tap nicoverbruggen/homebrew-cask`   
 `brew install --cask phpmon`
 
-## 15. Instalar Android Studio
+## 16. Instalar Android Studio
 `brew install --cask android-studio`
 
-## 16. Instalar Flutter
+## 17. Instalar Flutter
 `brew install --cask flutter`
 
 ---
