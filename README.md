@@ -77,6 +77,12 @@ App que mustra la version activa de php y permite switchear a otra
 `brew tap nicoverbruggen/homebrew-cask`   
 `brew install --cask phpmon`
 
+## 15. Instalar Android Studio
+`brew install --cask android-studio`
+
+## 16. Instalar Flutter
+`brew install --cask flutter`
+
 ---
 
 ### Uso de Valet
