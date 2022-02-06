@@ -99,6 +99,13 @@ en el ejemplo quedaria ***valet secure proyectolaravel***
 luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test***
 
 
+---
+### OTROS
+
+## Instalar Plex Media Server
+`brew install --cask plex-media-server`
+
+
 
  
 
