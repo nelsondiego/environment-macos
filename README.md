@@ -105,6 +105,9 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 ## Instalar Plex Media Server
 `brew install --cask plex-media-server`
 
+## Instalar App Cleaner
+`brew install --cask appcleaner`
+
 
 
  
