@@ -111,6 +111,9 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 ## Instalar App Cleaner
 `brew install --cask appcleaner`
 
+## Instalr Rekordbox
+`brew install --cask rekordbox`
+
 
 
  
