@@ -114,6 +114,9 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 ## Instalr Rekordbox
 `brew install --cask rekordbox`
 
+## Instalar Whatsapp
+`brew install --cask whatsapp`
+
 
 
  
