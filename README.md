@@ -117,6 +117,9 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 ## Instalar Whatsapp
 `brew install --cask whatsapp`
 
+## Instalar Slack
+`brew install --cask slack`
+
 
 
  
