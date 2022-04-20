@@ -102,6 +102,9 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 ---
 ### OTROS
 
+## Instalar Chrome
+`brew install --cask google-chrome`
+
 ## Instalar Plex Media Server
 `brew install --cask plex-media-server`
 
