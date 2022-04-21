@@ -86,6 +86,9 @@ App que mustra la version activa de php y permite switchear a otra
 ## 17. Instalar Flutter
 `brew install --cask flutter`
 
+Para resolver el error `Error running pod install` en Macs con M1 o posteriores    
+`sudo arch -x86_64 gem install ffi`
+
 ---
 
 ### Uso de Valet
