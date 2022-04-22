@@ -105,6 +105,9 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 ---
 ### OTROS
 
+## Instalar Insomnia
+`brew install --cask insomnia`
+
 ## Instalar Chrome
 `brew install --cask google-chrome`
 
