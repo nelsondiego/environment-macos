@@ -117,7 +117,7 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 ## Instalar App Cleaner
 `brew install --cask appcleaner`
 
-## Instalr Rekordbox
+## Instalar Rekordbox
 `brew install --cask rekordbox`
 
 ## Instalar Whatsapp
@@ -125,6 +125,9 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 
 ## Instalar Slack
 `brew install --cask slack`
+
+## Instalar Transmission
+`brew install --cask transmission`
 
 
 
