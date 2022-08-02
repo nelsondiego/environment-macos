@@ -130,6 +130,7 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 `brew install --cask transmission`
 
 
-
+## Instalar Discord
+`brew install --cask discord`
  
 
