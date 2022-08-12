@@ -132,5 +132,8 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 
 ## Instalar Discord
 `brew install --cask discord`
+
+## Instalar Keka (Descompresor)
+`brew install --cask keka`
  
 
