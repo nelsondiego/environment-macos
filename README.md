@@ -139,3 +139,6 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 ## Instalar Google Drive
 `brew install --cask google-drive`
 
+## Instalar Skype
+`brew install --cask skype`
+
