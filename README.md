@@ -136,4 +136,6 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 ## Instalar Keka (Descompresor)
 `brew install --cask keka`
  
+## Instalar Google Drive
+`brew install --cask google-drive`
 
