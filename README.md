@@ -142,3 +142,6 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 ## Instalar Skype
 `brew install --cask skype`
 
+## Instalar Spotify
+`brew install --cask spotify`
+
