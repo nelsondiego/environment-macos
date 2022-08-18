@@ -89,6 +89,12 @@ App que mustra la version activa de php y permite switchear a otra
 Para resolver el error `Error running pod install` en Macs con M1 o posteriores    
 `sudo arch -x86_64 gem install ffi`
 
+## 18. Instalar OpenJDK 11
+`brew install openjdk@11`
+
+Luego linkear:
+`sudo ln -sfn $(brew --prefix)/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk`
+
 ---
 
 ### Uso de Valet
