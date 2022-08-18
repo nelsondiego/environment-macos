@@ -92,7 +92,7 @@ Para resolver el error `Error running pod install` en Macs con M1 o posteriores
 ## 18. Instalar OpenJDK 11
 `brew install openjdk@11`
 
-Luego linkear:
+Luego linkear:   
 `sudo ln -sfn $(brew --prefix)/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk`
 
 ---
