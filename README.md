@@ -95,6 +95,9 @@ Para resolver el error `Error running pod install` en Macs con M1 o posteriores
 Luego linkear:   
 `sudo ln -sfn $(brew --prefix)/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk`
 
+## 19. Instalar Iterm2
+`brew install --cask iterm2`
+
 ---
 
 ### Uso de Valet
