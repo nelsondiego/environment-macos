@@ -31,6 +31,10 @@ Ejecutar el siguiente comando:
 ## 5. Instalar Oh My Zsh
 `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
+fonts para el theme *Agnoster* `https://github.com/powerline/fonts`, clonar, 
+luego `cd fonts` y luego `sh ./install.sh`
+luego setear en la terminal la font: `Meslo LG S DZ for Powerline |  Regular`
+
 ## 6. Instalar PHP (última versión)
 `brew install php`  
 para otra version anterior: 
