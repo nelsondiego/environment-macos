@@ -37,7 +37,7 @@ luego `cd fonts` y luego `sh ./install.sh`
 
 luego setear en la terminal la font: `Meslo LG S DZ for Powerline |  Regular`
 
-# Agregar el Plugin Zsh-AutoSuggestions
+## Agregar el Plugin Zsh-AutoSuggestions
 `brew install zsh-autosuggestions`
 
 luego agregar al final de **.zshrc**
