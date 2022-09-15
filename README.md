@@ -170,5 +170,5 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 `brew install --cask spotify`
 
 ## Crear ssh key
-`ssh-keygen -t ed25519 -C "<comment>"`
+`ssh-keygen -t rsa -b 2048 -C "<comment>"`
 
