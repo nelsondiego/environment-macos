@@ -172,3 +172,6 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 ## Crear ssh key
 `ssh-keygen -t rsa -b 2048 -C "<comment>"`
 
+## Instalar OBS (Open Broadcaster Software)
+`brew install --cask obs`
+
