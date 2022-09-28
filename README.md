@@ -110,6 +110,9 @@ Luego linkear:
 ## 19. Instalar Iterm2
 `brew install --cask iterm2`
 
+## 20. Instalar Warp terminal
+`brew install --cask warp`
+
 ---
 
 ### Uso de Valet
