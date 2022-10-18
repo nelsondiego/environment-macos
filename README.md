@@ -113,6 +113,9 @@ Luego linkear:
 ## 20. Instalar Warp terminal
 `brew install --cask warp`
 
+## 21. Instalar Pnpm
+`brew install pnpm`
+
 ---
 
 ### Uso de Valet
