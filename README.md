@@ -1,6 +1,6 @@
 # **Environment MacOS**
 
-## 1. Desabilitar seguridad del sistema
+## Desabilitar seguridad del sistema
 
 - Reiniciar en Modo Recovery. Apagar la macbook y volverla a encender, y ni bien enciende, presionar:  
  ```
@@ -20,24 +20,24 @@ csrutil disable
 
 > Todos los comandos que incluyen el flag --cask, se isntala la version de escritorio, en caso contrario la version para terminal  
 
-## 2. Instalar Homebrew
+## Instalar Homebrew
 Ejecutar el siguiente comando:
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-## 3. Instalar Composer
+## Instalar Composer
 ```
 brew install composer
 ```
 
-## 4. Instalar Git
+## Instalar Git
 ```
 brew install git
 ```
 
-## 5. Instalar Oh My Zsh
+## Instalar Oh My Zsh
 ```
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
@@ -64,7 +64,17 @@ luego agregar al final de **.zshrc**
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
 
-## 6. Instalar PHP (última versión)
+## Instalar Iterm2
+```
+brew install --cask iterm2
+```
+
+## Instalar Warp terminal
+```
+brew install --cask warp
+```
+
+## Instalar PHP (última versión)
 ```
 brew install php
 ```  
@@ -73,19 +83,19 @@ para otra version anterior:
 brew install php@7.4
 ```
 
-## 7. Instalar DBngin
+## Instalar DBngin
 DBngin instala y administra Mysql, PostgreSQL y Redis.  
 ```
 brew install --cask dbngin
 ```
 
-## 8. Instalar Sequel-Ace
+## Instalar Sequel-Ace
 Sequel-Ace es el cliente para DB  
 ```
 brew install --cask sequel-ace
 ```
 
-## 9. Instalar NVM (Node Version Manager)
+## Instalar NVM (Node Version Manager)
 
 ```
 brew install nvm
@@ -97,29 +107,34 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 ```
 
-## 10. Instalar Yarn
+## Instalar Pnpm
+```
+brew install pnpm
+```
+
+## Instalar Yarn
 ```
 brew install yarn
 ```
 
-## 11. Instalar Docker Desktop (opcional)
+## Instalar Docker Desktop (opcional)
 >Automaticamente determinar si es para Intel o Apple Silicon  
 
 ```
 brew install --cask docker
 ```
 
-## 12. Instalar Fork (Cliente de Git)
+## Instalar Fork (Cliente de Git)
 ```
 brew install --cask fork
 ```
 
-## 13. Instalar Visual Studio Code
+## Instalar Visual Studio Code
 ```
 brew install --cask visual-studio-code
 ```
 
-## 14. Instalar Laravel Valet
+## Instalar Laravel Valet
 ```
 composer global require laravel/valet
 ```
@@ -134,7 +149,7 @@ Se debera confiar para que no pregunte por el password cada vez que se ejecuta u
 valet trust
 ```
 
-## 15. Instalar PHP Monitor 
+## Instalar PHP Monitor 
 App que mustra la version activa de php y permite switchear a otra   
 ```
 brew tap nicoverbruggen/homebrew-cask
@@ -144,12 +159,12 @@ brew tap nicoverbruggen/homebrew-cask
 brew install --cask phpmon
 ```
 
-## 16. Instalar Android Studio
+## Instalar Android Studio
 ```
 brew install --cask android-studio
 ```
 
-## 17. Instalar Flutter
+## Instalar Flutter
 ```
 brew install --cask flutter
 ```
@@ -159,7 +174,7 @@ Para resolver el error `Error running pod install` en Macs con M1 o posteriores
 sudo arch -x86_64 gem install ffi
 ```
 
-## 18. Instalar OpenJDK 11
+## Instalar OpenJDK 11
 
 ```
 brew install openjdk@11
@@ -168,21 +183,6 @@ brew install openjdk@11
 Luego linkear:   
 ```
 sudo ln -sfn $(brew --prefix)/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
-```
-
-## 19. Instalar Iterm2
-```
-brew install --cask iterm2
-```
-
-## 20. Instalar Warp terminal
-```
-brew install --cask warp
-```
-
-## 21. Instalar Pnpm
-```
-brew install pnpm
 ```
 
 ---
