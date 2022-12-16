@@ -286,3 +286,8 @@ ssh-keygen -t rsa -b 2048 -C "<comment>"
 brew install --cask obs
 ```
 
+## Instalar Numi Calculator
+```
+brew install --cask numi
+```
+
