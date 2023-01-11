@@ -74,6 +74,11 @@ brew install --cask iterm2
 brew install --cask warp
 ```
 
+## Instalar Hyper terminal
+```
+brew install --cask hyper
+```
+
 ## Instalar PHP (última versión)
 ```
 brew install php
