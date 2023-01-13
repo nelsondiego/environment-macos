@@ -296,3 +296,8 @@ brew install --cask obs
 brew install --cask numi
 ```
 
+
+### Instalar Adobe Creative 
+```
+brew install --cask adobe-creative-cloud
+```
