@@ -238,6 +238,11 @@ brew install --cask plex-media-server
 brew install --cask appcleaner
 ```
 
+## Instalar Native Access
+```
+brew install --cask native-access
+```
+
 ## Instalar Rekordbox
 ```
 brew install --cask rekordbox
