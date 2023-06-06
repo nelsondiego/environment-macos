@@ -314,3 +314,8 @@ brew install --cask numi
 ```
 brew install --cask adobe-creative-cloud
 ```
+
+### Instalar Battery
+```
+brew install --cask battery
+```
