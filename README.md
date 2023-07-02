@@ -218,6 +218,11 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 ---
 ### OTROS
 
+## Instalar Spark
+```
+brew install --cask readdle-spark
+```
+
 ## Instalar Insomnia
 ```
 brew install --cask insomnia
