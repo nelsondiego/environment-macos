@@ -258,6 +258,11 @@ brew install --cask rekordbox
 brew install --cask whatsapp
 ```
 
+## instalar Telegram
+```
+brew install --cask telegram
+```
+
 ## Instalar Slack
 ```
 brew install --cask slack
