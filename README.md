@@ -122,6 +122,11 @@ brew install pnpm
 brew install yarn
 ```
 
+## Instalar Orbstack
+```
+brew install orbstack
+```
+
 ## Instalar Docker Desktop (opcional)
 >Automaticamente determinar si es para Intel o Apple Silicon  
 
