@@ -144,6 +144,11 @@ brew install --cask fork
 brew install --cask visual-studio-code
 ```
 
+## Instalar Laravel Herd
+```
+brew install --cask herd
+```
+
 ## Instalar Laravel Valet
 ```
 composer global require laravel/valet
