@@ -100,6 +100,11 @@ Sequel-Ace es el cliente para DB
 brew install --cask sequel-ace
 ```
 
+## Instalar DBeaver
+```
+brew install --cask dbeaver-community
+```
+
 ## Instalar NVM (Node Version Manager)
 
 ```
