@@ -194,6 +194,11 @@ Para resolver el error `Error running pod install` en Macs con M1 o posteriores
 sudo arch -x86_64 gem install ffi
 ```
 
+## Instalar MiniSim
+```
+brew install --cask minisim
+```
+
 ## Instalar OpenJDK 11
 
 ```
