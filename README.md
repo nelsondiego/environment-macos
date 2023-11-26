@@ -345,6 +345,11 @@ brew install --cask numi
 brew install --cask adobe-creative-cloud
 ```
 
+### Instalar Resolume Arena
+```
+brew install --cask resolume-arena
+```
+
 ### Instalar Battery
 ```
 brew install --cask battery
