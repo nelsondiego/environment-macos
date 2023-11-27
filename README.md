@@ -354,3 +354,9 @@ brew install --cask resolume-arena
 ```
 brew install --cask battery
 ```
+
+### Instalar Steam
+```
+brew install --cask steam
+```
+
