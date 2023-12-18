@@ -248,6 +248,11 @@ brew install --cask readdle-spark
 brew install --cask insomnia
 ```
 
+## Instalar Arc
+```
+brew install --cask arc
+```
+
 ## Instalar Chrome
 ```
 brew install --cask google-chrome
