@@ -144,6 +144,11 @@ brew install --cask docker
 brew install --cask fork
 ```
 
+## Instalar JetBrains Fleet
+```
+brew install --cask fleet
+```
+
 ## Instalar Visual Studio Code
 ```
 brew install --cask visual-studio-code
