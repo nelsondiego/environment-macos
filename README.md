@@ -154,6 +154,11 @@ brew install --cask fleet
 brew install --cask visual-studio-code
 ```
 
+## Instalar Zed
+```
+brew install --cask zed
+```
+
 ## Instalar Laravel Herd
 ```
 brew install --cask herd
