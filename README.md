@@ -375,3 +375,8 @@ brew install --cask battery
 brew install --cask steam
 ```
 
+### Instalar MS Teams
+```
+brew install --cask microsoft-teams
+```
+
