@@ -127,6 +127,11 @@ brew install pnpm
 brew install yarn
 ```
 
+## Instalar Vercel CLI
+```
+npm i -g vercel
+```
+
 ## Instalar Orbstack
 ```
 brew install orbstack
