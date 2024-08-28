@@ -159,6 +159,11 @@ brew install --cask fleet
 brew install --cask visual-studio-code
 ```
 
+## Instalar Cursor
+```
+brew install --cask cursor
+```
+
 ## Instalar Zed
 ```
 brew install --cask zed
