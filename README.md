@@ -88,6 +88,11 @@ para otra version anterior:
 brew install php@7.4
 ```
 
+## Instalar Xata CLI
+```
+brew tap xataio/brew && brew install xata
+```
+
 ## Instalar DBngin
 DBngin instala y administra Mysql, PostgreSQL y Redis.  
 ```
