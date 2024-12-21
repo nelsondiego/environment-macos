@@ -298,6 +298,11 @@ brew install --cask appcleaner
 brew install --cask native-access
 ```
 
+## Instalar Engine Dj
+```
+brew install --cask engine-dj
+```
+
 ## Instalar Rekordbox
 ```
 brew install --cask rekordbox
