@@ -64,6 +64,11 @@ luego agregar al final de **.zshrc**
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
 
+## Instalar Ghostty Terminal
+```
+brew install --cask ghostty
+```
+
 ## Instalar Iterm2
 ```
 brew install --cask iterm2
