@@ -278,7 +278,7 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 brew install --cask cloudflare-warp
 ```
 
-## Instalar LLM Studio
+## Instalar LM Studio
 ```
 brew install --cask lm-studio
 ```
