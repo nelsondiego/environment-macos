@@ -273,6 +273,17 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 ---
 ### OTROS
 
+## Instalar Cloudflare Warp
+```
+brew install --cask cloudflare-warp
+```
+
+## Instalar LLM Studio
+```
+brew install --cask lm-studio
+```
+
+
 ## Instalar Spark
 ```
 brew install --cask readdle-spark
