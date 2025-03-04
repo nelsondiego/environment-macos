@@ -74,6 +74,11 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 brew install --cask ghostty
 ```
 
+## Generador Config Ghostty
+```
+https://ghostty.zerebos.com/settings/colors
+```
+
 ## Instalar Iterm2
 ```
 brew install --cask iterm2
