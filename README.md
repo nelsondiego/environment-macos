@@ -184,6 +184,11 @@ brew install --cask visual-studio-code
 brew install --cask cursor
 ```
 
+## Instalar Trae AI
+```
+brew install --cask trae
+```
+
 ## Instalar Zed
 ```
 brew install --cask zed
