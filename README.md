@@ -179,6 +179,11 @@ brew install --cask fleet
 brew install --cask visual-studio-code
 ```
 
+## Instalar Visaul Studio Code Insider
+```
+brew install --cask visual-studio-code@insiders
+```
+
 ## Instalar Cursor
 ```
 brew install --cask cursor
