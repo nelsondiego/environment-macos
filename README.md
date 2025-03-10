@@ -189,6 +189,11 @@ brew install --cask visual-studio-code@insiders
 brew install --cask cursor
 ```
 
+## Instalar Windsurf
+```
+brew install --cask windsurf
+```
+
 ## Instalar Trae AI
 ```
 brew install --cask trae
