@@ -103,6 +103,11 @@ para otra version anterior:
 brew install php@7.4
 ```
 
+## Instalar Ngrok
+```
+brew install --cask ngrok
+```
+
 ## Instalar Xata CLI
 ```
 brew tap xataio/brew && brew install xata
