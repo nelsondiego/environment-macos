@@ -395,9 +395,9 @@ brew install --cask mipony
 brew install --cask google-drive
 ```
 
-## Instalar Skype
+## Instalar VLC
 ```
-brew install --cask skype
+brew install --cask vlc
 ```
 
 ## Instalar Spotify
