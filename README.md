@@ -162,6 +162,11 @@ npm i -g vercel
 brew install orbstack
 ```
 
+## Instalar Minikube
+```
+brew install minikube
+```
+
 ## Instalar Docker Desktop (opcional)
 >Automaticamente determinar si es para Intel o Apple Silicon  
 
