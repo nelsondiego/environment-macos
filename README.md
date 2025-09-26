@@ -254,6 +254,12 @@ brew install --cask android-studio
 brew install --cask flutter
 ```
 
+Para instalar Cocoapods
+```
+  sudo gem uninstall cocoapods
+  brew install cocoapods
+```
+
 Para resolver el error `Error running pod install` en Macs con M1 o posteriores    
 ```
 sudo arch -x86_64 gem install ffi
