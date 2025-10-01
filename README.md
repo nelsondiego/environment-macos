@@ -276,6 +276,14 @@ brew install --cask minisim
 brew install openjdk@11
 ```
 
+```
+brew install openjdk@17
+```
+
+```
+brew install openjdk@21
+```
+
 Luego linkear:   
 ```
 sudo ln -sfn $(brew --prefix)/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
