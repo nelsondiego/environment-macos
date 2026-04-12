@@ -288,6 +288,10 @@ Luego linkear:
 ```
 sudo ln -sfn $(brew --prefix)/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
 ```
+## Instalar Ollama
+```
+brew install ollama
+```
 
 
 ## Instalar Responsively
