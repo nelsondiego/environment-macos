@@ -321,6 +321,11 @@ luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test
 ---
 ### OTROS
 
+## Instalar BalenaEtcher
+```
+brew install --cask balenaetcher
+```
+
 ## Instalar Cloudflare Warp
 ```
 brew install --cask cloudflare-warp
