@@ -14,6 +14,7 @@ import { LiveOutputWindow } from './installer/window';
 import type { InstallationMode, InstallerOptions, SoftwareCategory, SoftwareItem } from './types/index';
 import { isHomebrewInstalled, runHomebrewInstallation } from './utils/homebrew';
 import { isMacOSPlatform } from './utils/platform';
+import { isXcodeCommandLineToolsInstalled, runXcodeCommandLineToolsInstallation } from './utils/xcode';
 
 /**
  * Resolves packages to install based on the selected installation mode using flat control flow.
@@ -64,7 +65,37 @@ export async function runInstaller(options: InstallerOptions): Promise<void> {
 
   showWelcomeBanner(isDryRun);
 
-  // Prerequisite Check: Homebrew
+  // Prerequisite Check 1: Xcode Command Line Tools
+  const xcodeCheckSpinner = clack.spinner();
+  xcodeCheckSpinner.start('Checking Xcode Command Line Tools...');
+
+  const hasXcodeTools = await isXcodeCommandLineToolsInstalled();
+
+  if (!hasXcodeTools) {
+    xcodeCheckSpinner.stop(pc.yellow('Xcode Command Line Tools are not installed on this system.'));
+
+    const shouldInstallXcode = await clack.confirm({
+      message: 'Xcode Command Line Tools are required to build and install software on macOS. Would you like to install them now?',
+      initialValue: true
+    });
+
+    if (!shouldInstallXcode) {
+      clack.outro(pc.yellow('Xcode Command Line Tools are required to continue. Setup aborted.'));
+      return;
+    }
+
+    const xcodeInstalledSuccessfully = await runXcodeCommandLineToolsInstallation(isDryRun);
+    if (!xcodeInstalledSuccessfully) {
+      clack.outro(pc.red('Failed to install Xcode Command Line Tools. Setup aborted.'));
+      return;
+    }
+
+    clack.log.success(pc.green('Xcode Command Line Tools verified. Proceeding...'));
+  } else {
+    xcodeCheckSpinner.stop(pc.green('Xcode Command Line Tools are installed and ready.'));
+  }
+
+  // Prerequisite Check 2: Homebrew
   const brewCheckSpinner = clack.spinner();
   brewCheckSpinner.start('Checking Homebrew installation...');
 

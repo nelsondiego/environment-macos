@@ -1,0 +1,154 @@
+#!/bin/bash
+
+# ==============================================================================
+# Environment macOS (dn-mac) - Bootstrap Installer
+#
+# Standalone, zero-dependency bootstrap installer for macOS.
+# Designed to run out of the box on freshly installed macOS systems via:
+#   curl -fsSL git.new/dn-mac | bash
+#
+# Prepares prerequisites in strict sequence:
+#   1. Xcode Command Line Tools (xcode-select)
+#   2. Homebrew (brew)
+#   3. Node.js & NPX (node)
+#   4. Launches the interactive wizard: npx dn-mac@latest
+# ==============================================================================
+
+set -euo pipefail
+
+# ANSI color codes for styling
+BOLD='\033[1m'
+GREEN='\033[32m'
+BLUE='\033[34m'
+YELLOW='\033[33m'
+RED='\033[31m'
+CYAN='\033[36m'
+DIM='\033[2m'
+RESET='\033[0m'
+
+# Helper loggers
+print_step() {
+    printf "\n${CYAN}==>${RESET} ${BOLD}%s${RESET}\n" "$1"
+}
+
+print_success() {
+    printf "${GREEN}✓ %s${RESET}\n" "$1"
+}
+
+print_warning() {
+    printf "${YELLOW}! %s${RESET}\n" "$1"
+}
+
+print_error() {
+    printf "${RED}✗ %s${RESET}\n" "$1" >&2
+}
+
+# ------------------------------------------------------------------------------
+# 0. Pre-flight Checks: Operating System
+# ------------------------------------------------------------------------------
+if [[ "$(uname -s)" != "Darwin" ]]; then
+    print_error "dn-mac is specifically designed for macOS (Darwin)."
+    exit 1
+fi
+
+cat << "EOF"
+
+   ╭──────────────────────────────────────────────────╮
+   │                                                  │
+   │      🍎  Environment macOS (dn-mac)              │
+   │      Bootstrap & Environment Provisioner         │
+   │                                                  │
+   ╰──────────────────────────────────────────────────╯
+
+EOF
+
+# ------------------------------------------------------------------------------
+# 1. Prerequisite: Xcode Command Line Tools
+# ------------------------------------------------------------------------------
+print_step "Checking Xcode Command Line Tools..."
+
+if ! xcode-select -p &>/dev/null; then
+    print_warning "Xcode Command Line Tools are missing. Initiating installation..."
+    
+    # Trigger native installation dialog
+    xcode-select --install 2>/dev/null || true
+    
+    printf "\n${BOLD}A software update dialog has been opened by macOS.${RESET}\n"
+    printf "Please click ${BOLD}\"Install\"${RESET} and accept the license terms to continue.\n"
+    printf "${DIM}Waiting for Command Line Tools installation to finish...${RESET}\n\n"
+    
+    # Wait until xcode-select -p reports success
+    until xcode-select -p &>/dev/null; do
+        printf "."
+        sleep 4
+    done
+    printf "\n"
+    print_success "Xcode Command Line Tools installed successfully."
+else
+    print_success "Xcode Command Line Tools are already installed."
+fi
+
+# ------------------------------------------------------------------------------
+# 2. Prerequisite: Homebrew
+# ------------------------------------------------------------------------------
+print_step "Checking Homebrew installation..."
+
+resolve_brew_path() {
+    if command -v brew &>/dev/null; then
+        command -v brew
+    elif [[ -x "/opt/homebrew/bin/brew" ]]; then
+        echo "/opt/homebrew/bin/brew"
+    elif [[ -x "/usr/local/bin/brew" ]]; then
+        echo "/usr/local/bin/brew"
+    else
+        echo ""
+    fi
+}
+
+BREW_PATH="$(resolve_brew_path)"
+
+if [[ -z "${BREW_PATH}" ]]; then
+    print_warning "Homebrew not found. Launching official Homebrew installer..."
+    
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    
+    BREW_PATH="$(resolve_brew_path)"
+    if [[ -z "${BREW_PATH}" ]]; then
+        print_error "Homebrew installation could not be verified."
+        exit 1
+    fi
+    print_success "Homebrew installed successfully."
+else
+    print_success "Homebrew is already installed."
+fi
+
+# Load Homebrew environment into current subshell session
+eval "$("${BREW_PATH}" shellenv)"
+
+# Ensure Homebrew shellenv is persisted in ~/.zprofile for future terminal windows
+USER_SHELL_PROFILE="${HOME}/.zprofile"
+if ! grep -q 'eval "\$(' "${USER_SHELL_PROFILE}" 2>/dev/null; then
+    printf '\neval "$(%s shellenv)"\n' "${BREW_PATH}" >> "${USER_SHELL_PROFILE}"
+fi
+
+# ------------------------------------------------------------------------------
+# 3. Prerequisite: Node.js & NPX
+# ------------------------------------------------------------------------------
+print_step "Checking Node.js & NPX runtime..."
+
+if ! command -v node &>/dev/null || ! command -v npx &>/dev/null; then
+    print_warning "Node.js runtime not found. Installing via Homebrew..."
+    brew install node
+    print_success "Node.js installed successfully."
+else
+    print_success "Node.js $(node --version) is ready."
+fi
+
+# ------------------------------------------------------------------------------
+# 4. Launch Interactive dn-mac Wizard
+# ------------------------------------------------------------------------------
+print_step "Launching dn-mac interactive wizard..."
+printf "\n"
+
+# Execute npx dn-mac, passing through any arguments (e.g. --dry-run)
+exec npx --yes dn-mac@latest "$@"

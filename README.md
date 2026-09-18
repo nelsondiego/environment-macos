@@ -16,8 +16,8 @@ An interactive, modern terminal CLI built for macOS to provision and configure y
 ## ✨ Features
 
 - 🎯 **Interactive Terminal Wizard**: Clean UI powered by `@clack/prompts` with smooth navigation and keyboard controls.
-- ⚡️ **Zero Installation Required**: Run instantly from anywhere in your macOS terminal with `npx dn-mac`.
-- 🍺 **Automated Homebrew Verification**: Instantly checks and reports Homebrew availability upon startup, offering guided one-click installation if missing.
+- ⚡️ **Zero Prerequisites Required**: Run instantly on fresh macOS installations with `curl -fsSL git.new/dn-mac | bash` or directly with `npx dn-mac`.
+- 🛠 **Automated Toolchain Verification**: Sequentially checks and installs **Xcode Command Line Tools** and **Homebrew** before running software provisioning.
 - ⚙️ **Flexible Installation Modes**: Choose between **Default installation** (curated essentials), **Manual** (custom selection per category), or **Install all** (entire catalog).
 - 🗂 **Categorized Catalog**: 12 organized categories covering core developer utilities, IDEs, terminals, browsers, databases, AI tools, and more.
 - 📦 **Sensible Defaults**: Popular developer essentials (Git, Oh My Zsh, Antigravity-Ide, Ghostty, Chrome, etc.) come pre-selected.
@@ -29,13 +29,27 @@ An interactive, modern terminal CLI built for macOS to provision and configure y
 
 ## ⚡️ Quick Start
 
-Run the interactive installer directly using `npx`:
+### 🍏 On a Fresh / Clean macOS (Single Command)
+
+If you just installed macOS or set up a new Mac (where Node.js, Homebrew, and Xcode Command Line Tools are not yet installed), run this single shortened command:
+
+```bash
+curl -fsSL git.new/dn-mac | bash
+```
+
+> This automatically provisions **Xcode Command Line Tools**, **Homebrew**, and **Node.js**, then immediately launches the interactive `dn-mac` wizard.
+
+---
+
+### 💻 On Machines with Node.js Pre-installed
+
+If you already have Node.js and `npx` available:
 
 ```bash
 npx dn-mac
 ```
 
-Or install it globally if you prefer:
+Or install globally:
 
 ```bash
 npm install -g dn-mac
@@ -61,7 +75,10 @@ dn-mac [options]
 ### Examples
 
 ```bash
-# Run interactive installer
+# Clean install on a brand new Mac
+curl -fsSL git.new/dn-mac | bash
+
+# Run interactive installer via NPX
 npx dn-mac
 
 # Test the selection and review commands without installing anything
@@ -74,9 +91,11 @@ npx dn-mac --dry-run
 
 The CLI guides you through an automated, clean setup process built with `@clack/prompts`:
 
-1. **Prerequisite Check: Homebrew**
-   The CLI automatically detects if Homebrew is installed. If not, it prompts you to install it right away and launches the official installer before proceeding.
-2. **Step 1: Choose Categories**
+1. **Prerequisite Check 1: Xcode Command Line Tools**
+   Verifies that Apple's developer tools (`xcode-select`) are ready. If missing, it guides you through the official macOS installer dialog before proceeding.
+2. **Prerequisite Check 2: Homebrew**
+   Detects if Homebrew is installed. If not, it prompts you to install it right away and launches the official Homebrew installer before proceeding.
+3. **Step 1: Choose Categories**
    Select which software groups you want to review (all categories are pre-selected for convenience).
 3. **Step 2: Choose Packages**
    For each selected category, pick the exact software you want. Essential developer tools (Git, Oh My Zsh, Antigravity-Ide, Ghostty, Chrome, etc.) come pre-checked by default (`default: true`).
