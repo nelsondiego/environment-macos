@@ -4,12 +4,18 @@ import pc from 'picocolors';
 import { parseCliArguments } from './cli/arguments';
 import { displayHelpInformation } from './cli/help';
 import { runInstaller } from './installer';
+import { APPLICATION_VERSION } from './version';
 
 /**
  * CLI application entry point.
  */
 async function main(): Promise<void> {
-  const { isDryRun, isHelpRequested } = parseCliArguments(process.argv.slice(2));
+  const { isDryRun, isHelpRequested, isVersionRequested } = parseCliArguments(process.argv.slice(2));
+
+  if (isVersionRequested) {
+    console.log(APPLICATION_VERSION);
+    return;
+  }
 
   if (isHelpRequested) {
     displayHelpInformation();
