@@ -1,6 +1,6 @@
 {
   "name": "dn-mac",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Interactive CLI for installing software and configuring macOS environment",
   "type": "module",
   "main": "dist/cli.js",
@@ -36,7 +36,7 @@
     "environment"
   ],
   "author": "Diego Nelson",
-  "license": "CC-BY-NC-ND-4.0",
+  "license": "MIT",
   "dependencies": {
     "@clack/prompts": "^0.10.0",
     "picocolors": "^1.1.1"

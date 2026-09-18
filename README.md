@@ -5,7 +5,7 @@
   <a href="https://www.npmjs.com/package/dn-mac"><img src="https://img.shields.io/npm/dm/dn-mac.svg?style=flat-square&color=blue" alt="npm downloads"></a>
   <img src="https://img.shields.io/badge/platform-macOS-lightgrey.svg?style=flat-square&logo=apple" alt="macOS platform">
   <img src="https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg?style=flat-square&logo=node.js" alt="Node.js version">
-  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-CC%20BY--NC--ND%204.0-orange.svg?style=flat-square" alt="License"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat-square" alt="License"></a>
   <a href="https://github.com/nelsondiego"><img src="https://img.shields.io/badge/maintainer-@nelsondiego-blue?style=flat-square&logo=github" alt="Maintainer"></a>
 </p>
 

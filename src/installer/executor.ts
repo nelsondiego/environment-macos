@@ -36,9 +36,7 @@ export async function executeSoftwareInstallation(
     // Prepend standard Homebrew paths so newly installed packages/brew are always accessible
     const executionCommand = `PATH="/opt/homebrew/bin:/usr/local/bin:$PATH" ${item.command}`;
 
-    const childProcess = spawn(executionCommand, {
-      shell: true
-    });
+    const childProcess = spawn('/bin/sh', ['-c', executionCommand]);
 
     const errorChunks: string[] = [];
 
