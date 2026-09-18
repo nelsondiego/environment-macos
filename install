@@ -110,8 +110,28 @@ BREW_PATH="$(resolve_brew_path)"
 if [[ -z "${BREW_PATH}" ]]; then
     print_warning "Homebrew not found. Launching official Homebrew installer..."
     
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    
+    # Request administrator privileges upfront if not already cached
+    print_step "Checking administrator privileges (sudo)..."
+    if [ -e /dev/tty ]; then
+        sudo -v < /dev/tty
+    else
+        sudo -v
+    fi
+
+    # Keep sudo timestamp alive in background during Homebrew installation
+    while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+    SUDO_KEEP_ALIVE_PID=$!
+    trap 'kill -9 ${SUDO_KEEP_ALIVE_PID} 2>/dev/null || true' EXIT
+
+    if [ -e /dev/tty ]; then
+        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/tty
+    else
+        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+
+    kill -9 "${SUDO_KEEP_ALIVE_PID}" 2>/dev/null || true
+    trap - EXIT
+
     BREW_PATH="$(resolve_brew_path)"
     if [[ -z "${BREW_PATH}" ]]; then
         print_error "Homebrew installation could not be verified."
@@ -125,11 +145,18 @@ fi
 # Load Homebrew environment into current subshell session
 eval "$("${BREW_PATH}" shellenv)"
 
-# Ensure Homebrew shellenv is persisted in ~/.zprofile for future terminal windows
+# Ensure Homebrew shellenv is persisted in ~/.zprofile & ~/.zshrc for future terminal windows
 USER_SHELL_PROFILE="${HOME}/.zprofile"
-if ! grep -q 'eval "\$(' "${USER_SHELL_PROFILE}" 2>/dev/null; then
-    printf '\neval "$(%s shellenv)"\n' "${BREW_PATH}" >> "${USER_SHELL_PROFILE}"
-fi
+USER_ZSHRC="${HOME}/.zshrc"
+
+for PROFILE_FILE in "${USER_SHELL_PROFILE}" "${USER_ZSHRC}"; do
+    if [[ -f "${PROFILE_FILE}" ]] || [[ "${PROFILE_FILE}" == "${USER_SHELL_PROFILE}" ]]; then
+        if ! grep -q 'brew shellenv' "${PROFILE_FILE}" 2>/dev/null; then
+            printf '\neval "$(%s shellenv)"\n' "${BREW_PATH}" >> "${PROFILE_FILE}"
+        fi
+    fi
+done
+print_success "Configured Homebrew environment in shell profiles."
 
 # ------------------------------------------------------------------------------
 # 3. Prerequisite: Node.js & NPX
@@ -138,8 +165,10 @@ print_step "Checking Node.js & NPX runtime..."
 
 if ! command -v node &>/dev/null || ! command -v npx &>/dev/null; then
     print_warning "Node.js runtime not found. Installing via Homebrew..."
-    brew install node
-    print_success "Node.js installed successfully."
+    brew install node < /dev/null
+    eval "$("${BREW_PATH}" shellenv)"
+    hash -r 2>/dev/null || true
+    print_success "Node.js $(node --version) installed successfully."
 else
     print_success "Node.js $(node --version) is ready."
 fi
@@ -150,5 +179,16 @@ fi
 print_step "Launching dn-mac interactive wizard..."
 printf "\n"
 
+# Verify npx is available
+if ! command -v npx &>/dev/null; then
+    print_error "npx command could not be located in PATH."
+    exit 1
+fi
+
 # Execute npx dn-mac, passing through any arguments (e.g. --dry-run)
-exec npx --yes dn-mac@latest "$@"
+# Connect to /dev/tty so interactive prompts (@clack/prompts) work even if piped via curl | bash
+if [ -e /dev/tty ]; then
+    exec npx --yes dn-mac@latest "$@" < /dev/tty
+else
+    exec npx --yes dn-mac@latest "$@"
+fi

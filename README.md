@@ -31,11 +31,13 @@ An interactive, modern terminal CLI built for macOS to provision and configure y
 
 ### 🍏 On a Fresh / Clean macOS (Single Command)
 
-If you just installed macOS or set up a new Mac (where Node.js, Homebrew, and Xcode Command Line Tools are not yet installed), run this single shortened command:
+If you just installed macOS or set up a new Mac (where Node.js, Homebrew, and Xcode Command Line Tools are not yet installed), run this single command:
 
 ```bash
-curl -fsSL git.new/dn-mac | bash
+/bin/bash -c "$(curl -fsSL git.new/dn-mac)"
 ```
+
+*(Alternatively, `curl -fsSL git.new/dn-mac | bash` is also fully supported.)*
 
 > This automatically provisions **Xcode Command Line Tools**, **Homebrew**, and **Node.js**, then immediately launches the interactive `dn-mac` wizard.
 
@@ -75,7 +77,10 @@ dn-mac [options]
 ### Examples
 
 ```bash
-# Clean install on a brand new Mac
+# Clean install on a brand new Mac (recommended)
+/bin/bash -c "$(curl -fsSL git.new/dn-mac)"
+
+# Or via pipeline
 curl -fsSL git.new/dn-mac | bash
 
 # Run interactive installer via NPX
