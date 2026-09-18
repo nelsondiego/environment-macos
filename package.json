@@ -7,6 +7,14 @@
   "bin": {
     "dn-mac": "./bin/cli.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nelsondiego/environment-macos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nelsondiego/environment-macos/issues"
+  },
+  "homepage": "https://github.com/nelsondiego/environment-macos#readme",
   "scripts": {
     "build": "tsup",
     "dev": "tsx src/cli.ts",
