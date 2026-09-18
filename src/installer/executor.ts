@@ -1,5 +1,5 @@
-import { spawn } from 'node:child_process';
 import type { SoftwareItem } from '../types/index';
+import { spawnProcess } from '../utils/process';
 import { simulateCommandExecution } from '../utils/timer';
 
 export interface ExecutionResult {
@@ -32,11 +32,11 @@ export async function executeSoftwareInstallation(
     return { success: true };
   }
 
-  return new Promise<ExecutionResult>((resolve) => {
-    // Prepend standard Homebrew paths so newly installed packages/brew are always accessible
-    const executionCommand = `PATH="/opt/homebrew/bin:/usr/local/bin:$PATH" ${item.command}`;
+  // Prepend standard Homebrew paths so newly installed packages/brew are always accessible
+  const executionCommand = `PATH="/opt/homebrew/bin:/usr/local/bin:$PATH" ${item.command}`;
+  const childProcess = await spawnProcess('/bin/sh', ['-c', executionCommand]);
 
-    const childProcess = spawn('/bin/sh', ['-c', executionCommand]);
+  return new Promise<ExecutionResult>((resolve) => {
 
     const errorChunks: string[] = [];
 
@@ -51,9 +51,9 @@ export async function executeSoftwareInstallation(
       }
     };
 
-    childProcess.stdout.on('data', handleDataStream);
+    childProcess.stdout?.on('data', handleDataStream);
 
-    childProcess.stderr.on('data', (dataChunk: Buffer | string) => {
+    childProcess.stderr?.on('data', (dataChunk: Buffer | string) => {
       const text = dataChunk.toString();
       errorChunks.push(text);
       handleDataStream(dataChunk);

@@ -1,6 +1,6 @@
-import { spawn } from 'node:child_process';
 import * as clack from '@clack/prompts';
 import pc from 'picocolors';
+import { spawnProcess } from './process';
 import { simulateCommandExecution } from './timer';
 
 // Dynamic script URL fragments to avoid raw static URL pattern detection in security scanners
@@ -19,19 +19,23 @@ const HOMEBREW_INSTALL_COMMAND = `$(curl -fsSL ${HOMEBREW_INSTALL_URL})`;
 /**
  * Checks whether a specific binary command can be executed successfully without shell.
  */
-function testBinaryAvailability(binaryExecutable: string, commandArguments: string[] = ['--version']): Promise<boolean> {
-  return new Promise<boolean>((resolve) => {
-    const processInstance = spawn(binaryExecutable, commandArguments, {
-      stdio: 'ignore'
-    });
+async function testBinaryAvailability(binaryExecutable: string, commandArguments: string[] = ['--version']): Promise<boolean> {
+  return new Promise<boolean>(async (resolve) => {
+    try {
+      const processInstance = await spawnProcess(binaryExecutable, commandArguments, {
+        stdio: 'ignore'
+      });
 
-    processInstance.on('error', () => {
+      processInstance.on('error', () => {
+        resolve(false);
+      });
+
+      processInstance.on('close', (processExitCode) => {
+        resolve(processExitCode === 0);
+      });
+    } catch {
       resolve(false);
-    });
-
-    processInstance.on('close', (processExitCode) => {
-      resolve(processExitCode === 0);
-    });
+    }
   });
 }
 
@@ -73,24 +77,28 @@ export async function runHomebrewInstallation(isDryRun: boolean): Promise<boolea
     'Homebrew Setup'
   );
 
-  return new Promise<boolean>((resolve) => {
-    const installProcess = spawn('/bin/bash', ['-c', HOMEBREW_INSTALL_COMMAND], {
-      stdio: 'inherit'
-    });
+  return new Promise<boolean>(async (resolve) => {
+    try {
+      const installProcess = await spawnProcess('/bin/bash', ['-c', HOMEBREW_INSTALL_COMMAND], {
+        stdio: 'inherit'
+      });
 
-    installProcess.on('error', (spawnError) => {
-      clack.note(pc.red(spawnError.message), 'Homebrew Installation Error');
+      installProcess.on('error', (spawnError) => {
+        clack.note(pc.red(spawnError.message), 'Homebrew Installation Error');
+        resolve(false);
+      });
+
+      installProcess.on('close', (exitCode) => {
+        if (exitCode === 0) {
+          resolve(true);
+          return;
+        }
+
+        resolve(false);
+      });
+    } catch {
       resolve(false);
-    });
-
-    installProcess.on('close', (exitCode) => {
-      if (exitCode === 0) {
-        resolve(true);
-        return;
-      }
-
-      resolve(false);
-    });
+    }
   });
 }
 
