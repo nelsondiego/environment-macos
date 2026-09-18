@@ -14,7 +14,7 @@ const HOMEBREW_SCRIPT_PARTS = [
   'install.sh'
 ];
 const HOMEBREW_INSTALL_URL = HOMEBREW_SCRIPT_PARTS.join('/');
-const HOMEBREW_INSTALL_COMMAND = `$(curl -fsSL ${HOMEBREW_INSTALL_URL})`;
+const HOMEBREW_INSTALL_COMMAND = `/bin/bash -c "$(curl -fsSL ${HOMEBREW_INSTALL_URL})"`;
 
 /**
  * Checks whether a specific binary command can be executed successfully without shell.
@@ -65,7 +65,7 @@ export async function isHomebrewInstalled(): Promise<boolean> {
 export async function runHomebrewInstallation(isDryRun: boolean): Promise<boolean> {
   if (isDryRun) {
     clack.note(
-      `[SIMULATION] Would execute:\n/bin/bash -c "${HOMEBREW_INSTALL_COMMAND}"`,
+      `[SIMULATION] Would execute:\n${HOMEBREW_INSTALL_COMMAND}`,
       'Homebrew Installation'
     );
     await simulateCommandExecution(600);
