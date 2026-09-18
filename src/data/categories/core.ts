@@ -6,12 +6,6 @@ export const coreCategory: SoftwareCategory = {
   description: 'Essential package managers, version control systems, and shell environments',
   items: [
     {
-      name: 'Homebrew',
-      description: 'The missing package manager for macOS',
-      command: '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"',
-      default: true
-    },
-    {
       name: 'Git',
       description: 'Distributed version control system',
       command: 'brew install git',

@@ -17,8 +17,9 @@ An interactive, modern terminal CLI built for macOS to provision and configure y
 
 - 🎯 **Interactive Terminal Wizard**: Clean UI powered by `@clack/prompts` with smooth navigation and keyboard controls.
 - ⚡️ **Zero Installation Required**: Run instantly from anywhere in your macOS terminal with `npx dn-mac`.
+- 🍺 **Automated Homebrew Verification**: Instantly checks and reports Homebrew availability upon startup, offering guided one-click installation if missing.
 - 🗂 **Categorized Catalog**: 12 organized categories covering core developer utilities, IDEs, terminals, browsers, databases, AI tools, and more.
-- 📦 **Sensible Defaults**: Popular developer essentials (Homebrew, Git, Oh My Zsh, Antigravity-Ide, Ghostty, Chrome, etc.) come pre-selected.
+- 📦 **Sensible Defaults**: Popular developer essentials (Git, Oh My Zsh, Antigravity-Ide, Ghostty, Chrome, etc.) come pre-selected.
 - 🖥 **Live Output Window**: An embedded real-time output terminal underneath the spinner lets you monitor exact stdout/stderr logs.
 - 🛡 **Safe Simulation Mode (`--dry-run`)**: Test and preview what would happen without modifying your system.
 - 🔄 **Interactive Error Recovery**: If an installation encounters an issue, the CLI pauses, displays the error details, and asks if you'd like to proceed.
@@ -70,17 +71,19 @@ npx dn-mac --dry-run
 
 ## 💡 How It Works
 
-The CLI guides you through a clean 2-step setup process built with `@clack/prompts`:
+The CLI guides you through an automated, clean setup process built with `@clack/prompts`:
 
-1. **Step 1: Choose Categories**
+1. **Prerequisite Check: Homebrew**
+   The CLI automatically detects if Homebrew is installed. If not, it prompts you to install it right away and launches the official installer before proceeding.
+2. **Step 1: Choose Categories**
    Select which software groups you want to review (all categories are pre-selected for convenience).
-2. **Step 2: Choose Packages**
-   For each selected category, pick the exact software you want. Essential developer tools (Homebrew, Git, Oh My Zsh, Antigravity-Ide, Ghostty, Chrome, etc.) come pre-checked by default (`default: true`).
-3. **Confirmation & Summary**
+3. **Step 2: Choose Packages**
+   For each selected category, pick the exact software you want. Essential developer tools (Git, Oh My Zsh, Antigravity-Ide, Ghostty, Chrome, etc.) come pre-checked by default (`default: true`).
+4. **Confirmation & Summary**
    Review a summarized list of all selected packages with clear descriptions before installation starts.
-4. **Execution with Progress Spinners & Live Output Window**
+5. **Execution with Progress Spinners & Live Output Window**
    Each command runs sequentially with real-time spinners and an inline live output window displaying stdout/stderr logs.
-5. **Interactive Error Recovery**
+6. **Interactive Error Recovery**
    If an installation error occurs, the CLI pauses, displays the error details, and asks whether you want to proceed with the remaining items or stop.
 
 ---
@@ -89,7 +92,7 @@ The CLI guides you through a clean 2-step setup process built with `@clack/promp
 
 The catalog is modularized under `src/data/categories/`:
 
-- **Core Tools & Package Managers** (`core.ts`): Homebrew, Git, Oh My Zsh, NVM, PNPM, Yarn, Vercel CLI, Composer.
+- **Core Tools & Package Managers** (`core.ts`): Git, Oh My Zsh, NVM, PNPM, Yarn, Vercel CLI, Composer.
 - **Code Editors & IDEs** (`editors.ts`): Antigravity-Ide, Visual Studio Code, Cursor, Windsurf, Trae AI, Zed, JetBrains Fleet, Android Studio.
 - **Terminals & Emulators** (`terminals.ts`): Ghostty, iTerm2, Warp, Hyper.
 - **Git GUI Clients** (`git.ts`): Fork, GitHub Desktop.
@@ -106,10 +109,10 @@ The catalog is modularized under `src/data/categories/`:
 
 ## ⚠️ Important Considerations & Post-Install Steps
 
-### 1. Homebrew Requirement
+### 1. Homebrew Prerequisite
 Most CLI and Desktop packages are installed via [Homebrew](https://brew.sh).
-- If Homebrew is not installed yet on your Mac, make sure **Homebrew** is selected in the "Core Tools" category (it is marked by default).
-- You can also install it manually prior to running other tools:
+- When launching `dn-mac`, the CLI automatically checks if Homebrew is installed. If missing, it will offer to install it on the spot.
+- You can also install it manually prior to running:
   ```bash
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   ```

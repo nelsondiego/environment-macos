@@ -11,7 +11,9 @@ import {
 } from './installer/prompts';
 import { LiveOutputWindow } from './installer/window';
 import type { InstallerOptions, SoftwareItem } from './types/index';
+import { ensureHomebrewInPath, isHomebrewInstalled, runHomebrewInstallation } from './utils/homebrew';
 import { isMacOSPlatform } from './utils/platform';
+import { handlePromptCancellation } from './utils/prompt';
 
 /**
  * Main orchestration function for the macOS software installer.
@@ -26,6 +28,37 @@ export async function runInstaller(options: InstallerOptions): Promise<void> {
   }
 
   showWelcomeBanner(isDryRun);
+
+  // Prerequisite Check: Homebrew
+  ensureHomebrewInPath();
+  const brewCheckSpinner = clack.spinner();
+  brewCheckSpinner.start('Checking Homebrew installation...');
+
+  const hasHomebrew = await isHomebrewInstalled();
+
+  if (!hasHomebrew) {
+    brewCheckSpinner.stop(pc.yellow('Homebrew is not installed on this system.'));
+
+    const shouldInstallHomebrew = await clack.confirm({
+      message: 'Homebrew is required to install macOS packages. Would you like to install Homebrew now?',
+      initialValue: true
+    });
+
+    if (handlePromptCancellation(shouldInstallHomebrew) || !shouldInstallHomebrew) {
+      clack.outro(pc.yellow('Homebrew is required to continue. Setup aborted.'));
+      return;
+    }
+
+    const homebrewInstalledSuccessfully = await runHomebrewInstallation(isDryRun);
+    if (!homebrewInstalledSuccessfully) {
+      clack.outro(pc.red('Failed to install Homebrew. Setup aborted.'));
+      return;
+    }
+
+    clack.log.success(pc.green('Homebrew installed successfully. Proceeding to categories...'));
+  } else {
+    brewCheckSpinner.stop(pc.green('Homebrew is installed and ready.'));
+  }
 
   // Step 1: Select Categories
   const selectedCategoryIds = await promptCategorySelection(softwareCategories);
