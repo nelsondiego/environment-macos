@@ -1,0 +1,24 @@
+name: Feature request
+description: Suggest an idea or new software package for dn-mac
+title: "[FEATURE]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggest a new feature, new software category, or additional software package for `dn-mac`.
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Feature / Package Proposal
+      description: Describe the feature or software package you would like to see added.
+      placeholder: e.g. Add formula 'htop' or cask 'orbstack' to Containers category
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation & Use Case
+      description: Why would this benefit developers setting up their macOS environment?
+    validations:
+      required: true

@@ -1,0 +1,47 @@
+name: Bug report
+description: Create a report to help us improve dn-mac
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report an issue with `dn-mac`!
+  - type: input
+    id: environment
+    attributes:
+      label: Environment Info
+      description: What version of macOS, Node.js, and package manager are you using?
+      placeholder: e.g. macOS Sonoma 14.5 (Apple Silicon M2), Node v22.1.0, pnpm v9.0.0
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1. Run 'npx dn-mac'
+        2. Select mode '...'
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: A clear description of what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context / Terminal Logs
+      description: Paste any relevant terminal logs or screenshots here.
