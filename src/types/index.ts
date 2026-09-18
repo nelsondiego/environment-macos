@@ -15,3 +15,5 @@ export interface SoftwareCategory {
 export interface InstallerOptions {
   isDryRun: boolean;
 }
+
+export type InstallationMode = 'default' | 'manual' | 'all';

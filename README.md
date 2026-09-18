@@ -18,6 +18,7 @@ An interactive, modern terminal CLI built for macOS to provision and configure y
 - 🎯 **Interactive Terminal Wizard**: Clean UI powered by `@clack/prompts` with smooth navigation and keyboard controls.
 - ⚡️ **Zero Installation Required**: Run instantly from anywhere in your macOS terminal with `npx dn-mac`.
 - 🍺 **Automated Homebrew Verification**: Instantly checks and reports Homebrew availability upon startup, offering guided one-click installation if missing.
+- ⚙️ **Flexible Installation Modes**: Choose between **Default installation** (curated essentials), **Manual** (custom selection per category), or **Install all** (entire catalog).
 - 🗂 **Categorized Catalog**: 12 organized categories covering core developer utilities, IDEs, terminals, browsers, databases, AI tools, and more.
 - 📦 **Sensible Defaults**: Popular developer essentials (Git, Oh My Zsh, Antigravity-Ide, Ghostty, Chrome, etc.) come pre-selected.
 - 🖥 **Live Output Window**: An embedded real-time output terminal underneath the spinner lets you monitor exact stdout/stderr logs.

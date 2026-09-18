@@ -7,13 +7,48 @@ import {
   promptCategorySelection,
   promptContinueAfterInstallationError,
   promptInstallationConfirmation,
+  promptInstallationMode,
   promptSoftwareSelectionForCategories
 } from './installer/prompts';
 import { LiveOutputWindow } from './installer/window';
-import type { InstallerOptions, SoftwareItem } from './types/index';
-import { ensureHomebrewInPath, isHomebrewInstalled, runHomebrewInstallation } from './utils/homebrew';
+import type { InstallationMode, InstallerOptions, SoftwareCategory, SoftwareItem } from './types/index';
+import { isHomebrewInstalled, runHomebrewInstallation } from './utils/homebrew';
 import { isMacOSPlatform } from './utils/platform';
-import { handlePromptCancellation } from './utils/prompt';
+
+/**
+ * Resolves packages to install based on the selected installation mode using flat control flow.
+ */
+async function resolveSoftwareItemsByMode(
+  mode: InstallationMode,
+  categories: SoftwareCategory[]
+): Promise<SoftwareItem[] | null> {
+  if (mode === 'default') {
+    return categories.flatMap((category) =>
+      category.items.filter((item) => item.default)
+    );
+  }
+
+  if (mode === 'all') {
+    return categories.flatMap((category) => category.items);
+  }
+
+  // Manual mode: select categories first, then select individual packages
+  const selectedCategoryIds = await promptCategorySelection(categories);
+  if (!selectedCategoryIds) {
+    return null;
+  }
+
+  if (selectedCategoryIds.length === 0) {
+    clack.outro(pc.yellow('No categories selected. Process finished.'));
+    return null;
+  }
+
+  const targetCategories = categories.filter((category) =>
+    selectedCategoryIds.includes(category.id)
+  );
+
+  return promptSoftwareSelectionForCategories(targetCategories);
+}
 
 /**
  * Main orchestration function for the macOS software installer.
@@ -30,7 +65,6 @@ export async function runInstaller(options: InstallerOptions): Promise<void> {
   showWelcomeBanner(isDryRun);
 
   // Prerequisite Check: Homebrew
-  ensureHomebrewInPath();
   const brewCheckSpinner = clack.spinner();
   brewCheckSpinner.start('Checking Homebrew installation...');
 
@@ -44,7 +78,7 @@ export async function runInstaller(options: InstallerOptions): Promise<void> {
       initialValue: true
     });
 
-    if (handlePromptCancellation(shouldInstallHomebrew) || !shouldInstallHomebrew) {
+    if (!shouldInstallHomebrew) {
       clack.outro(pc.yellow('Homebrew is required to continue. Setup aborted.'));
       return;
     }
@@ -55,28 +89,23 @@ export async function runInstaller(options: InstallerOptions): Promise<void> {
       return;
     }
 
-    clack.log.success(pc.green('Homebrew installed successfully. Proceeding to categories...'));
+    clack.log.success(pc.green('Homebrew installed successfully. Proceeding to setup...'));
   } else {
     brewCheckSpinner.stop(pc.green('Homebrew is installed and ready.'));
   }
 
-  // Step 1: Select Categories
-  const selectedCategoryIds = await promptCategorySelection(softwareCategories);
-  if (!selectedCategoryIds) {
+  // Step 1: Select Installation Mode
+  const chosenInstallationMode = await promptInstallationMode();
+  if (!chosenInstallationMode) {
     return;
   }
 
-  if (selectedCategoryIds.length === 0) {
-    clack.outro(pc.yellow('No categories selected. Process finished.'));
-    return;
-  }
-
-  // Step 2: Select Software in Target Categories
-  const targetCategories = softwareCategories.filter((category) =>
-    selectedCategoryIds.includes(category.id)
+  // Step 2: Resolve Software Items based on Chosen Mode
+  const selectedSoftwareItems = await resolveSoftwareItemsByMode(
+    chosenInstallationMode,
+    softwareCategories
   );
 
-  const selectedSoftwareItems = await promptSoftwareSelectionForCategories(targetCategories);
   if (!selectedSoftwareItems) {
     return;
   }

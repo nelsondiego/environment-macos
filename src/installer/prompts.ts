@@ -1,7 +1,40 @@
 import * as clack from '@clack/prompts';
 import pc from 'picocolors';
-import type { SoftwareCategory, SoftwareItem } from '../types/index';
+import type { InstallationMode, SoftwareCategory, SoftwareItem } from '../types/index';
 import { handlePromptCancellation } from '../utils/prompt';
+
+/**
+ * Prompts user to select the overall installation approach.
+ */
+export async function promptInstallationMode(): Promise<InstallationMode | null> {
+  const selectedMode = await clack.select({
+    message: 'How would you like to proceed with the installation?',
+    options: [
+      {
+        value: 'default',
+        label: 'Default installation',
+        hint: 'Install recommended and essential tools automatically'
+      },
+      {
+        value: 'manual',
+        label: 'Manual (choose what to install)',
+        hint: 'Browse categories and select specific packages one by one'
+      },
+      {
+        value: 'all',
+        label: 'Install all',
+        hint: 'Install the complete catalog of available software'
+      }
+    ],
+    initialValue: 'default'
+  });
+
+  if (handlePromptCancellation(selectedMode)) {
+    return null;
+  }
+
+  return selectedMode as InstallationMode;
+}
 
 /**
  * Prompts user to pick software categories to review.

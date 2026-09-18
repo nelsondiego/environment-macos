@@ -33,9 +33,11 @@ export async function executeSoftwareInstallation(
   }
 
   return new Promise<ExecutionResult>((resolve) => {
-    const childProcess = spawn(item.command, {
-      shell: true,
-      env: process.env
+    // Prepend standard Homebrew paths so newly installed packages/brew are always accessible
+    const executionCommand = `PATH="/opt/homebrew/bin:/usr/local/bin:$PATH" ${item.command}`;
+
+    const childProcess = spawn(executionCommand, {
+      shell: true
     });
 
     const errorChunks: string[] = [];
