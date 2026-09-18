@@ -1,476 +1,149 @@
-# **Environment MacOS**
+# Environment macOS (`dn-mac`)
 
-## Desabilitar seguridad del sistema
+<p align="center">
+  <a href="https://www.npmjs.com/package/dn-mac"><img src="https://img.shields.io/npm/v/dn-mac.svg?style=flat-square&color=cb3837" alt="npm version"></a>
+  <a href="https://www.npmjs.com/package/dn-mac"><img src="https://img.shields.io/npm/dm/dn-mac.svg?style=flat-square&color=blue" alt="npm downloads"></a>
+  <img src="https://img.shields.io/badge/platform-macOS-lightgrey.svg?style=flat-square&logo=apple" alt="macOS platform">
+  <img src="https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg?style=flat-square&logo=node.js" alt="Node.js version">
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-CC%20BY--NC--ND%204.0-orange.svg?style=flat-square" alt="License"></a>
+  <a href="https://github.com/nelsondiego"><img src="https://img.shields.io/badge/maintainer-@nelsondiego-blue?style=flat-square&logo=github" alt="Maintainer"></a>
+</p>
 
-- Reiniciar en Modo Recovery. Apagar la macbook y volverla a encender, y ni bien enciende, presionar:  
- ```
- command + R
- ```  
-
-- Abrir la terminal
-- Correr el comando 
-```
-csrutil disable
-```
-- Reiniciar  
-  
----
-       
-> Los siguientes pasos se hacen en la terminal  
-
-> Todos los comandos que incluyen el flag --cask, se isntala la version de escritorio, en caso contrario la version para terminal  
-
-## Instalar Homebrew
-Ejecutar el siguiente comando:
-
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-## Instalar Composer
-```
-brew install composer
-```
-
-## Instalar Git
-```
-brew install git
-```
-
-## Instaalr Github Desktop
-```
-brew install --cask github
-```
-
-## Instalar Oh My Zsh
-```
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-fonts para el theme **Agnoster** 
-```
-https://github.com/powerline/fonts
-```
-, clonar, luego ```cd fonts``` y luego 
-```
-sh ./install.sh
-```
-
-luego setear en la terminal la font: ```Meslo LG S DZ for Powerline |  Regular```
-
-## Agregar el Plugin Zsh-AutoSuggestions
-```
-brew install zsh-autosuggestions
-```
-
-luego agregar al final de **.zshrc**
-
-```
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-```
-
-## Instalar Ghostty Terminal
-```
-brew install --cask ghostty
-```
-
-## Generador Config Ghostty
-```
-https://ghostty.zerebos.com/settings/colors
-```
-
-## Instalar Iterm2
-```
-brew install --cask iterm2
-```
-
-## Instalar Warp terminal
-```
-brew install --cask warp
-```
-
-## Instalar Hyper terminal
-```
-brew install --cask hyper
-```
-
-## Instalar PHP (última versión)
-```
-brew install php
-```  
-para otra version anterior: 
-```
-brew install php@7.4
-```
-
-## Instalar Ngrok
-```
-brew install --cask ngrok
-```
-
-## Instalar Xata CLI
-```
-brew tap xataio/brew && brew install xata
-```
-
-## Instalar DBngin
-DBngin instala y administra Mysql, PostgreSQL y Redis.  
-```
-brew install --cask dbngin
-```
-
-## Instalar Sequel-Ace
-Sequel-Ace es el cliente para DB  
-```
-brew install --cask sequel-ace
-```
-
-## Instalar DBeaver
-```
-brew install --cask dbeaver-community
-```
-
-## Instalar NVM (Node Version Manager)
-
-```
-brew install nvm
-```   
-Luego agregar en .zshrc:   
-```
-export NVM_DIR="$HOME/.nvm"   
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm   
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-```
-
-## Instalar Pnpm
-```
-brew install pnpm
-```
-
-## Instalar Yarn
-```
-brew install yarn
-```
-
-## Instalar Vercel CLI
-```
-npm i -g vercel
-```
-
-## Instalar Orbstack
-```
-brew install orbstack
-```
-
-## Instalar Minikube
-```
-brew install minikube
-```
-
-## Instalar Docker Desktop (opcional)
->Automaticamente determinar si es para Intel o Apple Silicon  
-
-```
-brew install --cask docker
-```
-
-## Instalar Fork (Cliente de Git)
-```
-brew install --cask fork
-```
-
-## Instalar JetBrains Fleet
-```
-brew install --cask fleet
-```
-
-## Instalar Visual Studio Code
-```
-brew install --cask visual-studio-code
-```
-
-## Instalar Visaul Studio Code Insider
-```
-brew install --cask visual-studio-code@insiders
-```
-
-## Instalar Cursor
-```
-brew install --cask cursor
-```
-
-## Instalar Windsurf
-```
-brew install --cask windsurf
-```
-
-## Instalar Trae AI
-```
-brew install --cask trae
-```
-
-## Instalar Zed
-```
-brew install --cask zed
-```
-
-## Instalar Laravel Herd
-```
-brew install --cask herd
-```
-
-## Instalar Laravel Valet
-```
-composer global require laravel/valet
-```
-
-luego:
-```
-valet install
-```
-
-Se debera confiar para que no pregunte por el password cada vez que se ejecuta un comando:  
-```
-valet trust
-```
-
-## Instalar PHP Monitor 
-App que mustra la version activa de php y permite switchear a otra   
-```
-brew tap nicoverbruggen/homebrew-cask
-```   
-
-```
-brew install --cask phpmon
-```
-
-## Instalar Android Studio
-```
-brew install --cask android-studio
-```
-
-## Instalar Flutter
-```
-brew install --cask flutter
-```
-
-Para instalar Cocoapods
-```
-  sudo gem uninstall cocoapods
-  brew install cocoapods
-```
-
-Para resolver el error `Error running pod install` en Macs con M1 o posteriores    
-```
-sudo arch -x86_64 gem install ffi
-```
-
-## Instalar MiniSim
-```
-brew install --cask minisim
-```
-
-## Instalar OpenJDK 11
-
-```
-brew install openjdk@11
-```
-
-```
-brew install openjdk@17
-```
-
-```
-brew install openjdk@21
-```
-
-Luego linkear:   
-```
-sudo ln -sfn $(brew --prefix)/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
-```
-## Instalar Ollama
-```
-brew install ollama
-```
-
-
-## Instalar Responsively
-
-```
-brew install --cask responsively
-```
-
+An interactive, modern terminal CLI built for macOS to provision and configure your development environment effortlessly using Homebrew and curated software packages.
 
 ---
 
-### Uso de Valet
-En la raiz del proyecto laravel o symfony correr    
-```
-valet link
-```
+## ✨ Features
 
-luego, suponiendo que la carpeta del proyecto se llame *proyectolaravel* ejecutar el siguiente comando con el mismo nombre para instalar un certificado de seguridad para https:  
-```
-valet secure <nombre de la carpeta>
-```  
-en el ejemplo quedaria ***valet secure proyectolaravel***
-
-luego de esto ya puede vistitar en el navegador: ***https://proyectolaravel.test***
-
+- 🎯 **Interactive Terminal Wizard**: Clean UI powered by `@clack/prompts` with smooth navigation and keyboard controls.
+- ⚡️ **Zero Installation Required**: Run instantly from anywhere in your macOS terminal with `npx dn-mac`.
+- 🗂 **Categorized Catalog**: 12 organized categories covering core developer utilities, IDEs, terminals, browsers, databases, AI tools, and more.
+- 📦 **Sensible Defaults**: Popular developer essentials (Homebrew, Git, Oh My Zsh, Antigravity-Ide, Ghostty, Chrome, etc.) come pre-selected.
+- 🖥 **Live Output Window**: An embedded real-time output terminal underneath the spinner lets you monitor exact stdout/stderr logs.
+- 🛡 **Safe Simulation Mode (`--dry-run`)**: Test and preview what would happen without modifying your system.
+- 🔄 **Interactive Error Recovery**: If an installation encounters an issue, the CLI pauses, displays the error details, and asks if you'd like to proceed.
 
 ---
-### OTROS
 
-## Instalar BalenaEtcher
-```
-brew install --cask balenaetcher
-```
+## ⚡️ Quick Start
 
-## Instalar Cloudflare Warp
-```
-brew install --cask cloudflare-warp
+Run the interactive installer directly using `npx`:
+
+```bash
+npx dn-mac
 ```
 
-## Instalar LM Studio
-```
-brew install --cask lm-studio
+Or install it globally if you prefer:
+
+```bash
+npm install -g dn-mac
+dn-mac
 ```
 
+---
 
-## Instalar Spark
-```
-brew install --cask readdle-spark
-```
+## 🚀 Usage & Options
 
-## Instalar Insomnia
-```
-brew install --cask insomnia
+```bash
+dn-mac [options]
 ```
 
-## Instalar Arc
-```
-brew install --cask arc
+### Options
+
+| Flag | Description |
+|---|---|
+| `-d`, `--dry-run` | Run the wizard in **simulation mode** (validates selections and displays commands without altering your system) |
+| `-h`, `--help` | Display CLI help information and usage instructions |
+| `-v`, `--version` | Display the current version number |
+
+### Examples
+
+```bash
+# Run interactive installer
+npx dn-mac
+
+# Test the selection and review commands without installing anything
+npx dn-mac --dry-run
 ```
 
-## Instalar Chrome
-```
-brew install --cask google-chrome
+---
+
+## 💡 How It Works
+
+The CLI guides you through a clean 2-step setup process built with `@clack/prompts`:
+
+1. **Step 1: Choose Categories**
+   Select which software groups you want to review (all categories are pre-selected for convenience).
+2. **Step 2: Choose Packages**
+   For each selected category, pick the exact software you want. Essential developer tools (Homebrew, Git, Oh My Zsh, Antigravity-Ide, Ghostty, Chrome, etc.) come pre-checked by default (`default: true`).
+3. **Confirmation & Summary**
+   Review a summarized list of all selected packages with clear descriptions before installation starts.
+4. **Execution with Progress Spinners & Live Output Window**
+   Each command runs sequentially with real-time spinners and an inline live output window displaying stdout/stderr logs.
+5. **Interactive Error Recovery**
+   If an installation error occurs, the CLI pauses, displays the error details, and asks whether you want to proceed with the remaining items or stop.
+
+---
+
+## 📦 Software Categories Included
+
+The catalog is modularized under `src/data/categories/`:
+
+- **Core Tools & Package Managers** (`core.ts`): Homebrew, Git, Oh My Zsh, NVM, PNPM, Yarn, Vercel CLI, Composer.
+- **Code Editors & IDEs** (`editors.ts`): Antigravity-Ide, Visual Studio Code, Cursor, Windsurf, Trae AI, Zed, JetBrains Fleet, Android Studio.
+- **Terminals & Emulators** (`terminals.ts`): Ghostty, iTerm2, Warp, Hyper.
+- **Git GUI Clients** (`git.ts`): Fork, GitHub Desktop.
+- **Languages, Runtimes & Frameworks** (`runtimes.ts`): PHP (Latest), PHP Monitor, Laravel Herd, Flutter, CocoaPods, OpenJDK (11, 17, 21).
+- **Databases & GUI Clients** (`databases.ts`): DBngin, Sequel-Ace, DBeaver Community.
+- **Containers & Virtualization** (`containers.ts`): OrbStack, Docker Desktop, Minikube.
+- **Artificial Intelligence & Local LLMs** (`ai.ts`): Ollama, LM Studio.
+- **Browsers & Web Testing Tools** (`browsers.ts`): Google Chrome, Arc, Responsively, Insomnia, Ngrok, MiniSim.
+- **System Utilities** (`utilities.ts`): AppCleaner, Numi, Google Drive, Keka, Battery, BalenaEtcher, Cloudflare WARP, Mipony.
+- **Communication & Collaboration** (`communication.ts`): Discord, WhatsApp, Slack, Telegram, Microsoft Teams.
+- **Multimedia & Entertainment** (`media.ts`): VLC, Plex Media Server, Transmission, Spotify, OBS Studio, Adobe Creative Cloud, Native Access, Engine DJ, Rekordbox, Steam.
+
+---
+
+## ⚠️ Important Considerations & Post-Install Steps
+
+### 1. Homebrew Requirement
+Most CLI and Desktop packages are installed via [Homebrew](https://brew.sh).
+- If Homebrew is not installed yet on your Mac, make sure **Homebrew** is selected in the "Core Tools" category (it is marked by default).
+- You can also install it manually prior to running other tools:
+  ```bash
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ```
+
+### 2. Sudo Permissions
+Certain software installations or configurations (e.g. creating symlinks in `/Library/Java/JavaVirtualMachines` or system-level drivers) may prompt you for your macOS administrator password in the terminal.
+
+### 3. NVM (Node Version Manager) Configuration
+After installing NVM via Homebrew, ensure the following lines are added to your `~/.zshrc`:
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 ```
 
-## Instalar Plex Media Server
-```
-brew install --cask plex-media-server
-```
+---
 
-## Instalar App Cleaner
-```
-brew install --cask appcleaner
-```
+## 🛠️ Requirements
 
-## Instalar Native Access
-```
-brew install --cask native-access
-```
+- **macOS**: Apple Silicon (M1/M2/M3/M4) or Intel
+- **Node.js**: `>= 20.0.0`
+- **Internet Connection**: Required to download Homebrew bottles and casks
 
-## Instalar Engine Dj
-```
-brew install --cask engine-dj
-```
+---
 
-## Instalar Rekordbox
-```
-brew install --cask rekordbox
-```
+## 🤝 Contributing & Issues
 
-## Instalar Whatsapp
-```
-brew install --cask whatsapp
-```
+Contributions, issues, and feature requests are welcome!  
+Feel free to open an issue or pull request on the GitHub repository:  
+👉 [https://github.com/nelsondiego/environment-macos](https://github.com/nelsondiego/environment-macos)
 
-## instalar Telegram
-```
-brew install --cask telegram
-```
+---
 
-## Instalar Slack
-```
-brew install --cask slack
-```
+## 📄 License
 
-## Instalar Transmission
-```
-brew install --cask transmission
-```
-
-
-## Instalar Discord
-```
-brew install --cask discord
-```
-
-## Instalar Keka (Descompresor)
-```
-brew install --cask keka
-```
-
-## Instalar Mipony
-```
-brew install --cask mipony
-```
- 
-## Instalar Google Drive
-```
-brew install --cask google-drive
-```
-
-## Instalar VLC
-```
-brew install --cask vlc
-```
-
-## Instalar Spotify
-```
-brew install --cask spotify
-```
-
-## Crear ssh key
-```
-ssh-keygen -t rsa -b 2048 -C "<comment>"
-```
-
-## Instalar OBS (Open Broadcaster Software)
-```
-brew install --cask obs
-```
-
-## Instalar Numi Calculator
-```
-brew install --cask numi
-```
-
-
-### Instalar Adobe Creative 
-```
-brew install --cask adobe-creative-cloud
-```
-
-### Instalar Resolume Arena
-```
-brew install --cask resolume-arena
-```
-
-### Instalar Battery
-```
-brew install --cask battery
-```
-
-### Instalar Steam
-```
-brew install --cask steam
-```
-
-### Instalar MS Teams
-```
-brew install --cask microsoft-teams
-```
-
+This project is licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)](./LICENSE).  
+Free to use; copying, commercial use, and distribution of derivative works are prohibited.
