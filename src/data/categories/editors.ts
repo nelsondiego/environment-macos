@@ -52,6 +52,24 @@ export const editorsCategory: SoftwareCategory = {
       description: 'Official IDE for Android application development',
       command: 'brew install --cask android-studio',
       default: false
+    },
+    {
+      name: 'Codex',
+      description: 'OpenAI Codex CLI tool for terminal-based coding assistance',
+      command: 'brew install --cask codex',
+      default: false
+    },
+    {
+      name: 'OpenCode Desktop',
+      description: 'Open-source AI coding assistant desktop app',
+      command: 'brew install --cask opencode-desktop',
+      default: false
+    },
+    {
+      name: 'Claude Code',
+      description: 'Anthropic agentic coding assistant in the terminal',
+      command: 'brew install --cask claude-code',
+      default: false
     }
   ]
 };

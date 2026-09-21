@@ -52,6 +52,36 @@ export const utilitiesCategory: SoftwareCategory = {
       description: 'Automated download manager',
       command: 'brew install --cask mipony',
       default: false
+    },
+    {
+      name: 'Notion',
+      description: 'All-in-one workspace for notes, docs, project management and tasks',
+      command: 'brew install --cask notion',
+      default: false
+    },
+    {
+      name: 'Obsidian',
+      description: 'Extensible Markdown-based knowledge base and note-taking app',
+      command: 'brew install --cask obsidian',
+      default: false
+    },
+    {
+      name: 'Raycast',
+      description: 'Blazingly fast, extendable launcher and productivity spotlight replacement',
+      command: 'brew install --cask raycast',
+      default: false
+    },
+    {
+      name: 'Rectangle',
+      description: 'Move and resize windows on macOS using keyboard shortcuts and snap areas',
+      command: 'brew install --cask rectangle',
+      default: false
+    },
+    {
+      name: 'Maccy',
+      description: 'Lightweight and native clipboard manager for macOS menu bar',
+      command: 'brew install --cask maccy',
+      default: false
     }
   ]
 };

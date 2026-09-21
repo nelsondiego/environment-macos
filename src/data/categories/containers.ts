@@ -22,6 +22,18 @@ export const containersCategory: SoftwareCategory = {
       description: 'Local Kubernetes engine focused on making local development easy',
       command: 'brew install minikube',
       default: false
+    },
+    {
+      name: 'Davit',
+      description: 'Native macOS GUI for Apple container CLI',
+      command: 'brew install --cask davit',
+      default: false
+    },
+    {
+      name: 'Container Compose',
+      description: 'Manage Apple Container with Docker Compose files',
+      command: 'brew install container-compose',
+      default: false
     }
   ]
 };

@@ -117,19 +117,166 @@ The CLI guides you through an automated, clean setup process built with `@clack/
 
 The catalog is modularized under `src/data/categories/`:
 
-- **Core Tools & Package Managers** (`core.ts`): Git, Oh My Zsh, NVM, PNPM, Yarn, Vercel CLI, Composer.
-- **Code Editors & IDEs** (`editors.ts`): Antigravity-Ide, Visual Studio Code, Cursor, Windsurf, Trae AI, Zed, JetBrains Fleet, Android Studio.
-- **Terminals & Emulators** (`terminals.ts`): Ghostty, iTerm2, Warp, Hyper.
-- **Git GUI Clients** (`git.ts`): Fork, GitHub Desktop.
-- **Languages, Runtimes & Frameworks** (`runtimes.ts`): PHP (Latest), PHP Monitor, Laravel Herd, Flutter, CocoaPods, OpenJDK (11, 17, 21).
-- **Databases & GUI Clients** (`databases.ts`): DBngin, Sequel-Ace, DBeaver Community.
-- **Containers & Virtualization** (`containers.ts`): OrbStack, Docker Desktop, Minikube.
-- **Artificial Intelligence & Local LLMs** (`ai.ts`): Ollama, LM Studio.
-- **Browsers & Web Testing Tools** (`browsers.ts`): Google Chrome, Arc, Responsively, Insomnia, Ngrok, MiniSim.
-- **System Utilities** (`utilities.ts`): AppCleaner, Numi, Google Drive, Keka, Battery, BalenaEtcher, Cloudflare WARP, Mipony.
-- **Communication & Collaboration** (`communication.ts`): Discord, WhatsApp, Slack, Telegram, Microsoft Teams.
-- **Multimedia & Entertainment** (`media.ts`): VLC, Plex Media Server, Transmission, Spotify, OBS Studio, Adobe Creative Cloud, Native Access, Engine DJ, Rekordbox, Steam.
+### Core Tools & Package Managers
 
+Essential package managers, version control systems, and shell environments
+
+| Package | Description | Default |
+|---|---|:---:|
+| **Git** | Distributed version control system | ✅ |
+| **Oh My Zsh** | Delightful framework for managing Zsh configuration | ✅ |
+| **NVM (Node Version Manager)** | Node.js version manager for managing multiple active Node environments | ✅ |
+| **PNPM** | Fast, disk space efficient package manager for Node.js | ✅ |
+| **Yarn** | Alternative package manager for Node.js | — |
+| **Vercel CLI** | Command line interface for deploying projects to Vercel | — |
+| **Composer** | Dependency manager for PHP | — |
+
+### Code Editors & IDEs
+
+Development environments, lightweight editors, and AI-assisted IDEs
+
+| Package | Description | Default |
+|---|---|:---:|
+| **Antigravity-Ide** | The agentic coding IDE built by Google DeepMind | ✅ |
+| **Visual Studio Code** | Lightweight, highly extensible code editor | — |
+| **Cursor** | AI-first code editor built on VS Code | — |
+| **Windsurf** | IDE featuring advanced agentic AI capabilities | — |
+| **Trae AI** | AI-assisted development environment | — |
+| **Zed** | High-performance code editor written in Rust | — |
+| **JetBrains Fleet** | Lightweight and collaborative IDE by JetBrains | — |
+| **Android Studio** | Official IDE for Android application development | — |
+| **Codex** | OpenAI Codex CLI tool for terminal-based coding assistance | — |
+| **OpenCode Desktop** | Open-source AI coding assistant desktop app | — |
+| **Claude Code** | Anthropic agentic coding assistant in the terminal | — |
+
+### Terminals & Emulators
+
+High-performance terminal applications and shell emulators
+
+| Package | Description | Default |
+|---|---|:---:|
+| **Ghostty** | Fast, feature-rich native terminal emulator with GPU acceleration | ✅ |
+| **iTerm2** | Highly customizable terminal emulator for macOS | — |
+| **Warp** | Modern IDE-style terminal with built-in AI assistant | — |
+| **Hyper** | Extensible terminal emulator built on web technologies | — |
+
+### Git GUI Clients
+
+Graphical user interfaces for managing Git repositories visually
+
+| Package | Description | Default |
+|---|---|:---:|
+| **Fork** | Fast, friendly, and powerful native Git client | — |
+| **GitHub Desktop** | Official GUI client for GitHub repositories | — |
+
+### Languages, Runtimes & Frameworks
+
+Execution environments for PHP, Java, Flutter, and development tools
+
+| Package | Description | Default |
+|---|---|:---:|
+| **PHP (Latest)** | Popular general-purpose scripting language suited for web development | — |
+| **PHP Monitor** | Mac menu bar app for managing active PHP versions | — |
+| **Laravel Herd** | Ultra-fast native Laravel and PHP development environment | — |
+| **Flutter** | Google UI toolkit for building cross-platform applications | — |
+| **CocoaPods** | Dependency manager for Swift and Objective-C Cocoa projects | — |
+| **OpenJDK 11** | Open-source implementation of Java Platform SE 11 | — |
+| **OpenJDK 17** | Open-source implementation of Java Platform SE 17 (LTS) | — |
+| **OpenJDK 21** | Open-source implementation of Java Platform SE 21 (Latest LTS) | — |
+| **Go** | Open source programming language to build simple, fast, and reliable software | — |
+
+### Databases & GUI Clients
+
+Local database servers and visual management tools
+
+| Package | Description | Default |
+|---|---|:---:|
+| **DBngin** | All-in-one local database server manager for MySQL, PostgreSQL & Redis | — |
+| **Sequel-Ace** | Native macOS GUI client for MySQL and MariaDB databases | — |
+| **DBeaver Community** | Free universal database tool and SQL client | — |
+
+### Containers & Virtualization
+
+Lightweight container platforms, Docker Desktop, and Kubernetes tools
+
+| Package | Description | Default |
+|---|---|:---:|
+| **OrbStack** | Fast, light, and low-energy alternative to Docker Desktop and Linux VMs | — |
+| **Docker Desktop** | Official desktop application for building and sharing containerized applications | — |
+| **Minikube** | Local Kubernetes engine focused on making local development easy | — |
+| **Davit** | Native macOS GUI for Apple container CLI | — |
+| **Container Compose** | Manage Apple Container with Docker Compose files | — |
+
+### Artificial Intelligence & Local LLMs
+
+Tools to run, manage, and test open-source language models locally
+
+| Package | Description | Default |
+|---|---|:---:|
+| **Ollama** | Get up and running with large language models locally | — |
+| **LM Studio** | Desktop application to discover, download, and run local LLMs | — |
+
+### Browsers & Web Testing Tools
+
+Web browsers for development, responsive layout testing, and API debugging
+
+| Package | Description | Default |
+|---|---|:---:|
+| **Google Chrome** | Popular web browser developed by Google | ✅ |
+| **Arc Browser** | Modern browser designed around organized workspaces and productivity | — |
+| **Responsively** | Modified browser designed for responsive web development across device screens | — |
+| **Insomnia** | Powerful REST and GraphQL API client for testing endpoints | — |
+| **Ngrok** | Secure tunnels to expose local development servers to the internet | — |
+| **MiniSim** | Mac menu bar app for launching Android emulators and iOS simulators quickly | — |
+
+### System Utilities
+
+Archivers, uninstallers, menu bar calculators, and system utilities
+
+| Package | Description | Default |
+|---|---|:---:|
+| **AppCleaner** | Thorough uninstaller to remove apps and their leftover files | ✅ |
+| **Numi** | Smart calculator app for Mac menu bar with natural language support | ✅ |
+| **Google Drive** | Official file synchronization client for Google Drive | ✅ |
+| **Keka** | Powerful file archiver and extractor for macOS | — |
+| **Battery** | MacBook battery management utility to prolong battery lifespan | — |
+| **BalenaEtcher** | Flash OS images to SD cards and USB drives safely | — |
+| **Cloudflare WARP** | Fast and private Internet connection utility by Cloudflare | — |
+| **Mipony** | Automated download manager | — |
+| **Notion** | All-in-one workspace for notes, docs, project management and tasks | — |
+| **Obsidian** | Extensible Markdown-based knowledge base and note-taking app | — |
+| **Raycast** | Blazingly fast, extendable launcher and productivity spotlight replacement | — |
+| **Rectangle** | Move and resize windows on macOS using keyboard shortcuts and snap areas | — |
+| **Maccy** | Lightweight and native clipboard manager for macOS menu bar | — |
+
+### Communication & Collaboration
+
+Team chat platforms, instant messaging, email clients, and video calls
+
+| Package | Description | Default |
+|---|---|:---:|
+| **Discord** | Voice, video, and text communication platform | ✅ |
+| **WhatsApp** | Official desktop client for WhatsApp messaging | ✅ |
+| **Slack** | Team messaging and collaboration platform | — |
+| **Telegram** | Fast and secure cloud-based messaging app | — |
+| **Microsoft Teams** | Workspace chat, video meetings, and file storage platform | — |
+
+### Multimedia, Audio & Entertainment
+
+Music and video players, creative suites, DJ applications, and games
+
+| Package | Description | Default |
+|---|---|:---:|
+| **VLC** | Free open-source cross-platform multimedia player | ✅ |
+| **Plex Media Server** | Personal media server to stream movies, TV shows, and music | ✅ |
+| **Transmission** | Fast, easy, and free BitTorrent client | ✅ |
+| **Spotify** | Digital music and podcast streaming service | — |
+| **OBS Studio** | Free software for video recording and live streaming | — |
+| **Adobe Creative Cloud** | Collection of creative desktop apps by Adobe | — |
+| **Native Access** | License and download manager for Native Instruments products | — |
+| **Engine DJ** | Desktop music preparation software for Denon DJ hardware | — |
+| **Rekordbox** | Professional DJ software by Pioneer DJ | — |
+| **Steam** | Digital distribution platform for PC games | — |
 ---
 
 ## ⚠️ Important Considerations & Post-Install Steps

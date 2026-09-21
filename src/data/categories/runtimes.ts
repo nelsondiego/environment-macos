@@ -52,6 +52,12 @@ export const runtimesCategory: SoftwareCategory = {
       description: 'Open-source implementation of Java Platform SE 21 (Latest LTS)',
       command: 'brew install openjdk@21',
       default: false
+    },
+    {
+      name: 'Go',
+      description: 'Open source programming language to build simple, fast, and reliable software',
+      command: 'brew install go',
+      default: false
     }
   ]
 };
