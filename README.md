@@ -277,6 +277,7 @@ Music and video players, creative suites, DJ applications, and games
 | **Engine DJ** | Desktop music preparation software for Denon DJ hardware | — |
 | **Rekordbox** | Professional DJ software by Pioneer DJ | — |
 | **Steam** | Digital distribution platform for PC games | — |
+| **Audacity** | Multi-track audio editor and recorder | — |
 ---
 
 ## ⚠️ Important Considerations & Post-Install Steps

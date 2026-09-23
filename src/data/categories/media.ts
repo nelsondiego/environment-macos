@@ -64,6 +64,12 @@ export const mediaCategory: SoftwareCategory = {
       description: 'Digital distribution platform for PC games',
       command: 'brew install --cask steam',
       default: false
+    },
+    {
+      name: 'Audacity',
+      description: 'Multi-track audio editor and recorder',
+      command: 'brew install --cask audacity',
+      default: false
     }
   ]
 };

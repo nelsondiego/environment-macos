@@ -1,6 +1,6 @@
 {
   "name": "dn-mac",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Interactive CLI for installing software and configuring macOS environment",
   "type": "module",
   "main": "dist/cli.js",
